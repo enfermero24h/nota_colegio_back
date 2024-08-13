@@ -5,6 +5,7 @@ use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\NotaController;
+use App\Http\Controllers\RandomUserAsincronaController;
 use App\Http\Controllers\RandomUserController;
 
 
@@ -38,3 +39,7 @@ Route::delete('/notas/{id}', [NotaController::class, 'destroy']);
 
 //Ruta para ramdom
 Route::get('/random-users', [RandomUserController::class, 'getUsers']);
+
+// Ruta para Random Asíncrono
+Route::post('/asin/random-users', [RandomUserAsincronaController::class, 'getUsers'])->name('random-users.asin');
+Route::post('/asin/random-users/callback', [RandomUserAsincronaController::class, 'callback'])->name('random-users.callback');
